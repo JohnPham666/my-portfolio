@@ -1,0 +1,185 @@
+{
+  "personal": {
+    "name": "Pham Khai Trieu",
+    "title": "Software Engineer",
+    "subtitle": "Back-end Developer",
+    "tagline": "Building elegant solutions to complex problems. Passionate about clean code, scalable systems, and continuous learning.",
+    "resumeFile": "/My_Resume.pdf",
+    "imageFile": "/Chân_dung.png",
+    "socials": {
+      "github": "https://github.com/JohnPham666",
+      "linkedin": "https://www.linkedin.com/in/phamkhaitrieu/",
+      "email": "khaitrieu665@gmail.com"
+    }
+  },
+  "about": {
+    "intro": "I'm a Software Engineering student with a strong foundation in full-stack development and a passion for building impactful software. I thrive on turning complex problems into simple, elegant solutions and I'm actively seeking internship and junior software engineering opportunities where I can contribute, learn, and grow.",
+    "strengths": [
+      {
+        "icon": "puzzle",
+        "title": "Problem Solving",
+        "description": "Analytical thinker with strong algorithmic skills and a methodical approach to tackling challenges."
+      },
+      {
+        "icon": "code",
+        "title": "Back-end Development",
+        "description": "Proficient across the stack — from responsive UIs to robust backend APIs and database design."
+      },
+      {
+        "icon": "team",
+        "title": "Team Collaboration",
+        "description": "Effective communicator who thrives in collaborative environments using Agile methodologies."
+      },
+      {
+        "icon": "learn",
+        "title": "Growth Mindset",
+        "description": "Committed to continuous learning, staying current with industry trends and best practices."
+      }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Frontend",
+      "icon": "frontend",
+      "items": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js"
+      ]
+    },
+    {
+      "category": "Backend",
+      "icon": "backend",
+      "items": [
+        "Node.js",
+        "Java",
+        "Spring Boot",
+        "REST APIs"
+      ]
+    },
+    {
+      "category": "Database",
+      "icon": "database",
+      "items": [
+        "MySQL",
+        "MS SQL",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "category": "Tools & DevOps",
+      "icon": "tools",
+      "items": [
+        "Git",
+        "Docker",
+        "Intelliji",
+        "Linux",
+        "Antigravity",
+        "GitHub Actions"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Parking Management System",
+      "description": "A comprehensive system to manage vehicle parking slots, automate ticketing, and simulate payment processing. Designed to streamline parking operations for small to mid-size facilities.",
+      "tech": [
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "REST API"
+      ],
+      "role": "Back-end Developer",
+      "features": [
+        "Real-time slot availability management",
+        "Automated ticket generation and tracking",
+        "Payment simulation with receipt generation",
+        "Admin dashboard for analytics and reporting"
+      ],
+      "github": "https://github.com/JohnPham666/ParkingBuilingManagementSystem",
+      "demo": ""
+    },
+    {
+      "name": "E-Commerce Platform",
+      "description": "A modern e-commerce web application with product catalog, shopping cart, user authentication, and order management — built for a seamless online shopping experience.",
+      "tech": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "JWT"
+      ],
+      "role": "Full Stack Developer",
+      "features": [
+        "User authentication and authorization",
+        "Product search and filtering",
+        "Shopping cart with persistent state",
+        "Order history and tracking"
+      ],
+      "github": "https://github.com/yourusername/ecommerce-platform",
+      "demo": ""
+    },
+    {
+      "name": "Task Management App",
+      "description": "A productivity-focused task manager with drag-and-drop kanban boards, real-time collaboration, and deadline tracking to help teams stay organized.",
+      "tech": [
+        "React",
+        "Firebase",
+        "CSS3",
+        "Drag & Drop API"
+      ],
+      "role": "Frontend Developer",
+      "features": [
+        "Kanban board with drag-and-drop",
+        "Real-time sync across devices",
+        "Priority-based task categorization",
+        "Deadline notifications and reminders"
+      ],
+      "github": "https://github.com/yourusername/task-manager",
+      "demo": ""
+    }
+  ],
+  "experience": [],
+  "education": [
+    {
+      "university": "FPT University",
+      "degree": "Bachelor of Software Engineering",
+      "major": "Software Engineering",
+      "period": "2024 – 2027",
+      "gpa": "3.5 / 4.0",
+      "highlights": [
+        "Data Structures & Algorithms",
+        "Software Architecture",
+        "Database Systems",
+        "Web Development"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "IELTS Academic",
+      "issuer": "British Council",
+      "date": "2024",
+      "score": "Band 7.5"
+    },
+    {
+      "name": "Full Stack Web Development",
+      "issuer": "Coursera",
+      "date": "2024",
+      "credential": "https://coursera.org/verify/xxxxx"
+    },
+    {
+      "name": "Java Programming Masterclass",
+      "issuer": "Udemy",
+      "date": "2023",
+      "credential": "https://udemy.com/certificate/xxxxx"
+    }
+  ],
+  "contact": {
+    "heading": "Let's Connect",
+    "description": "I'm currently looking for internship and junior software engineering opportunities. Whether you have a question, a project idea, or just want to say hello — my inbox is always open.",
+    "formAction": "https://formsubmit.co/your.email@example.com"
+  }
+}
