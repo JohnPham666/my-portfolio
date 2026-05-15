@@ -5,17 +5,36 @@ import './Contact.css';
 export default function Contact({ data, socials }) {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    fetch(data.formAction, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    }).then(() => {
-      setSubmitted(true);
-      form.reset();
-    });
+    
+    // Web3Forms API Endpoint
+    const web3formsAction = "https://api.web3forms.com/submit";
+
+    const formData = new FormData(form);
+    const senderName = formData.get('name') || 'Someone';
+    // Set a dynamic subject line
+    formData.set('subject', `New message from ${senderName} - Portfolio`);
+
+    try {
+      const response = await fetch(web3formsAction, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        alert(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Network error. Please try again later.');
+    }
   };
 
   return (
@@ -33,6 +52,14 @@ export default function Contact({ data, socials }) {
               <div className="contact__success">
                 <FiMail />
                 <p>Thanks for reaching out! I'll get back to you soon.</p>
+                <button 
+                  type="button" 
+                  onClick={() => setSubmitted(false)} 
+                  className="btn btn--primary" 
+                  style={{ marginTop: '1.5rem' }}
+                >
+                  Send another message
+                </button>
               </div>
             ) : (
               <>
@@ -48,6 +75,11 @@ export default function Contact({ data, socials }) {
                   <label htmlFor="contact-message">Message</label>
                   <textarea id="contact-message" name="message" required rows="5" placeholder="Your message..." />
                 </div>
+                
+                {/* Web3Forms required access key */}
+                <input type="hidden" name="access_key" value={data.accessKey} />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+                
                 <button type="submit" className="btn btn--primary contact__submit">
                   <FiSend />
                   <span>Send Message</span>
