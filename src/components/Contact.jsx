@@ -8,7 +8,7 @@ export default function Contact({ data, socials }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    
+
     // Web3Forms API Endpoint
     const web3formsAction = "https://api.web3forms.com/submit";
 
@@ -16,6 +16,10 @@ export default function Contact({ data, socials }) {
     const senderName = formData.get('name') || 'Someone';
     // Set a dynamic subject line
     formData.set('subject', `New message from ${senderName} - Portfolio`);
+    // Make the email display the sender's name instead of "Web3Forms"
+    formData.set('from_name', senderName);
+    // Explicitly set reply-to (though web3forms usually does this automatically if name="email")
+    formData.set('replyto', formData.get('email'));
 
     try {
       const response = await fetch(web3formsAction, {
@@ -23,9 +27,9 @@ export default function Contact({ data, socials }) {
         body: formData,
         headers: { Accept: 'application/json' },
       });
-      
+
       const result = await response.json();
-      
+
       if (response.ok) {
         setSubmitted(true);
         form.reset();
@@ -52,10 +56,10 @@ export default function Contact({ data, socials }) {
               <div className="contact__success">
                 <FiMail />
                 <p>Thanks for reaching out! I'll get back to you soon.</p>
-                <button 
-                  type="button" 
-                  onClick={() => setSubmitted(false)} 
-                  className="btn btn--primary" 
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="btn btn--primary"
                   style={{ marginTop: '1.5rem' }}
                 >
                   Send another message
@@ -75,11 +79,11 @@ export default function Contact({ data, socials }) {
                   <label htmlFor="contact-message">Message</label>
                   <textarea id="contact-message" name="message" required rows="5" placeholder="Your message..." />
                 </div>
-                
+
                 {/* Web3Forms required access key */}
                 <input type="hidden" name="access_key" value={data.accessKey} />
                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-                
+
                 <button type="submit" className="btn btn--primary contact__submit">
                   <FiSend />
                   <span>Send Message</span>
