@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowRight } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowRight, FiMessageCircle } from 'react-icons/fi';
 import './Hero.css';
 
 export default function Hero({ data }) {
@@ -48,6 +48,11 @@ export default function Hero({ data }) {
             <a href={`mailto:${socials.email}`} className="hero__social-link" aria-label="Email">
               <FiMail />
             </a>
+            {socials.zalo && (
+              <a href={socials.zalo} target="_blank" rel="noopener noreferrer" className="hero__social-link" aria-label="Zalo">
+                <FiMessageCircle />
+              </a>
+            )}
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiMail, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiSend, FiGithub, FiLinkedin, FiMessageCircle } from 'react-icons/fi';
 import './Contact.css';
 
 export default function Contact({ data, socials }) {
@@ -70,6 +70,11 @@ export default function Contact({ data, socials }) {
                 <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="contact__info-social">
                   <FiLinkedin /> LinkedIn
                 </a>
+                {socials.zalo && (
+                  <a href={socials.zalo} target="_blank" rel="noopener noreferrer" className="contact__info-social">
+                    <FiMessageCircle /> Zalo
+                  </a>
+                )}
               </div>
             </div>
           </div>
