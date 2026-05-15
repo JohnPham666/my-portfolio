@@ -67,35 +67,41 @@
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
   --transition-theme: 400ms ease;
+
+  /* Global Background Image Placeholder */
+  --bg-image: url('/daihoc-fpt.jpg');
 }
 
 /* ── Light Theme (default) ──────────────── */
 [data-theme='light'] {
-  --bg-primary: #fafafa;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f5f5f5;
-  --bg-elevated: #ffffff;
+  --bg-primary: rgba(255, 255, 255, 0.90);
+  --bg-secondary: rgba(255, 255, 255, 0.8);
+  --bg-tertiary: rgba(245, 245, 245, 0.7);
+  --bg-elevated: rgba(255, 255, 255, 0.95);
   --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-opacity: 0.5;
+  /* Brightness of background image in light mode */
 
   --text-primary: #0a0a0a;
-  --text-secondary: #525252;
-  --text-tertiary: #737373;
+  --text-secondary: #333333; /* Darkened for better contrast */
+  --text-tertiary: #4a4a4a; /* Darkened for better contrast */
   --text-inverse: #fafafa;
 
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-subtle: rgba(37, 99, 235, 0.08);
-  --accent-text: #1e40af;
+  /* Orange energetic theme */
+  --accent: #ea580c; /* Orange 600 */
+  --accent-hover: #c2410c; /* Orange 700 */
+  --accent-subtle: rgba(234, 88, 12, 0.08);
+  --accent-text: #c2410c;
 
-  --border: #e5e5e5;
-  --border-hover: #d4d4d4;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
 
-  --card-bg: #ffffff;
-  --card-border: #e5e5e5;
+  --card-bg: rgba(255, 255, 255, 0.85); /* Increased opacity */
+  --card-border: rgba(255, 255, 255, 0.6);
   --card-shadow: var(--shadow-sm);
   --card-shadow-hover: var(--shadow-lg);
 
-  --nav-bg: rgba(250, 250, 250, 0.8);
+  --nav-bg: rgba(250, 250, 250, 0.75);
   --nav-border: rgba(0, 0, 0, 0.06);
 
   --tag-bg: #f0f0f0;
@@ -106,31 +112,34 @@
 
 /* ── Dark Theme ─────────────────────────── */
 [data-theme='dark'] {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-tertiary: #171717;
-  --bg-elevated: #1a1a1a;
+  --bg-primary: rgba(15, 15, 15, 0.90);
+  --bg-secondary: rgba(20, 20, 20, 0.8);
+  --bg-tertiary: rgba(25, 25, 25, 0.7);
+  --bg-elevated: rgba(30, 30, 30, 0.95);
   --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-opacity: 0.35;
+  /* Darkness of background image in dark mode */
 
-  --text-primary: #ededed;
-  --text-secondary: #a3a3a3;
-  --text-tertiary: #737373;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc; /* Lightened for better contrast */
+  --text-tertiary: #aaaaaa; /* Lightened for better contrast */
   --text-inverse: #0a0a0a;
 
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-subtle: rgba(59, 130, 246, 0.1);
-  --accent-text: #93c5fd;
+  /* Orange energetic theme */
+  --accent: #f97316; /* Orange 500 */
+  --accent-hover: #fb923c; /* Orange 400 */
+  --accent-subtle: rgba(249, 115, 22, 0.1);
+  --accent-text: #fdba74; /* Orange 300 */
 
-  --border: #262626;
-  --border-hover: #404040;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.25);
 
-  --card-bg: #141414;
-  --card-border: #262626;
+  --card-bg: rgba(25, 25, 25, 0.85); /* Increased opacity */
+  --card-border: rgba(255, 255, 255, 0.1);
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
 
-  --nav-bg: rgba(10, 10, 10, 0.8);
+  --nav-bg: rgba(10, 10, 10, 0.75);
   --nav-border: rgba(255, 255, 255, 0.06);
 
   --tag-bg: #1e1e1e;
@@ -154,6 +163,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-theme), color var(--transition-theme);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background image with blur effect */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50px;
+  /* Oversize to prevent blur bleeding at edges */
+  z-index: -10;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  opacity: var(--bg-opacity);
+  pointer-events: none;
+  transition: opacity var(--transition-theme);
 }
 
 a {
@@ -178,8 +206,29 @@ button {
   outline: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
+}
+
+/* ── Glassmorphism Classes ──────────────── */
+/* Apply backdrop blur to specific parent cards and inputs */
+.about__strength-card,
+.skills__card,
+.projects__card,
+.experience__card,
+.experience__empty,
+.education__card,
+.certifications__card,
+.contact__info-card,
+.theme-toggle,
+.navbar__hamburger,
+.btn--secondary,
+.hero__social-link,
+.contact__field input,
+.contact__field textarea {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* ── Utilities ──────────────────────────── */
@@ -228,7 +277,7 @@ ul, ol {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -237,12 +286,29 @@ ul, ol {
 }
 
 /* Stagger children */
-.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 320ms; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 400ms; }
+.reveal-stagger>.reveal:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.reveal-stagger>.reveal:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.reveal-stagger>.reveal:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.reveal-stagger>.reveal:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+.reveal-stagger>.reveal:nth-child(5) {
+  transition-delay: 320ms;
+}
+
+.reveal-stagger>.reveal:nth-child(6) {
+  transition-delay: 400ms;
+}
 
 /* ── Responsive ─────────────────────────── */
 @media (max-width: 768px) {

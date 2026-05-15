@@ -6,7 +6,7 @@
   padding: var(--space-16) var(--space-8);
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
-  background: var(--bg-tertiary);
+  background: var(--card-bg); /* Fixed from bg-tertiary */
 }
 
 .experience__empty-icon {
