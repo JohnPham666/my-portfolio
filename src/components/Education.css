@@ -77,33 +77,66 @@
   border-radius: var(--radius-full);
 }
 
-.education__highlights-label {
+/* ── Courses with Grades ──────────────── */
+.education__courses-label {
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-tertiary);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
-.education__highlights-tags {
+.education__courses-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-2);
 }
 
-.education__highlight-tag {
-  font-size: var(--text-xs);
+.education__course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--bg-hover);
+  transition: background var(--transition-fast);
+}
+
+.education__course:hover {
+  background: var(--accent-subtle);
+}
+
+.education__course-name {
+  font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--tag-text);
-  background: var(--tag-bg);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}
+
+.education__course-score {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.education__course-grade {
+  color: var(--text-tertiary);
+  font-weight: 500;
+  margin-left: var(--space-1);
+  font-size: var(--text-xs);
 }
 
 @media (max-width: 480px) {
   .education__card {
     flex-direction: column;
     gap: var(--space-4);
+  }
+
+  .education__course {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
   }
 }

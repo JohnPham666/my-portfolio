@@ -1,7 +1,10 @@
-import { FiAward, FiExternalLink } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiAward, FiExternalLink, FiX } from 'react-icons/fi';
 import './Certifications.css';
 
 export default function Certifications({ data }) {
+  const [lightbox, setLightbox] = useState(null);
+
   if (!data || data.length === 0) return null;
 
   return (
@@ -27,6 +30,15 @@ export default function Certifications({ data }) {
                     <span className="certifications__score">{cert.score}</span>
                   )}
                 </div>
+                {cert.image && (
+                  <div className="certifications__image">
+                    <img
+                      src={cert.image}
+                      alt={`${cert.name} certificate`}
+                      onClick={() => setLightbox(cert.image)}
+                    />
+                  </div>
+                )}
                 {cert.credential && (
                   <a
                     href={cert.credential}
@@ -43,6 +55,20 @@ export default function Certifications({ data }) {
           ))}
         </div>
       </div>
+
+      {/* Lightbox for certificate images */}
+      {lightbox && (
+        <div className="certifications__lightbox" onClick={() => setLightbox(null)}>
+          <button
+            className="certifications__lightbox-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+          >
+            <FiX />
+          </button>
+          <img src={lightbox} alt="Certificate" onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </section>
   );
 }

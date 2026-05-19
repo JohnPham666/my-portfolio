@@ -19,7 +19,7 @@ export default function App() {
   // Set initial theme
   useEffect(() => {
     const saved = localStorage.getItem('portfolio-theme');
-    document.documentElement.setAttribute('data-theme', saved || 'light');
+    document.documentElement.setAttribute('data-theme', saved || 'dark');
   }, []);
 
   return (

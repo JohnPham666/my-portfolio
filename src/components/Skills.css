@@ -50,7 +50,9 @@
 }
 
 .skills__tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   background: var(--tag-bg);
   color: var(--tag-text);
@@ -63,6 +65,16 @@
 .skills__tag:hover {
   background: var(--accent-subtle);
   color: var(--accent);
+}
+
+.skills__tag-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.skills__tag:hover .skills__tag-icon {
+  transform: scale(1.15);
+  transition: transform var(--transition-fast);
 }
 
 @media (max-width: 768px) {

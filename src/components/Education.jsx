@@ -28,12 +28,20 @@ export default function Education({ data }) {
                     <span className="education__gpa-value">{edu.gpa}</span>
                   </div>
                 )}
-                {edu.highlights && edu.highlights.length > 0 && (
-                  <div className="education__highlights">
-                    <p className="education__highlights-label">Key Coursework</p>
-                    <div className="education__highlights-tags">
-                      {edu.highlights.map((h, j) => (
-                        <span className="education__highlight-tag" key={j}>{h}</span>
+                {edu.courses && edu.courses.length > 0 && (
+                  <div className="education__courses">
+                    <p className="education__courses-label">Key Coursework</p>
+                    <div className="education__courses-list">
+                      {edu.courses.map((course, j) => (
+                        <div className="education__course" key={j}>
+                          <span className="education__course-name">{course.name}</span>
+                          {course.score && (
+                            <span className="education__course-score">
+                              {course.score}
+                              <span className="education__course-grade">({course.grade})</span>
+                            </span>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>

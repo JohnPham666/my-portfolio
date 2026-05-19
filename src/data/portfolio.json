@@ -75,10 +75,19 @@
       "items": [
         "Git",
         "Docker",
-        "Intelliji",
+        "IntelliJ IDEA",
         "Linux",
         "Antigravity",
         "GitHub Actions"
+      ]
+    },
+    {
+      "category": "Languages",
+      "icon": "languages",
+      "items": [
+        "Vietnamese (Native)",
+        "English (IELTS 7.5)",
+        "Japanese (Basic)"
       ]
     }
   ],
@@ -119,7 +128,7 @@
         "Shopping cart with persistent state",
         "Order history and tracking"
       ],
-      "github": "https://github.com/yourusername/ecommerce-platform",
+      "github": "",
       "demo": ""
     },
     {
@@ -138,7 +147,7 @@
         "Priority-based task categorization",
         "Deadline notifications and reminders"
       ],
-      "github": "https://github.com/yourusername/task-manager",
+      "github": "",
       "demo": ""
     }
   ],
@@ -150,11 +159,22 @@
       "major": "Software Engineering",
       "period": "2024 – 2027",
       "gpa": "3.5 / 4.0",
-      "highlights": [
-        "Data Structures & Algorithms",
-        "Software Architecture",
-        "Database Systems",
-        "Web Development"
+      "courses": [
+        {
+          "name": "Data Structures & Algorithms",
+          "score": "9.2",
+          "grade": "A+"
+        },
+        {
+          "name": "Database Systems",
+          "score": "9.0",
+          "grade": "A+"
+        },
+        {
+          "name": "OOP Java",
+          "score": "8.5",
+          "grade": "A"
+        }
       ]
     }
   ],
@@ -162,20 +182,37 @@
     {
       "name": "IELTS Academic",
       "issuer": "British Council",
-      "date": "2024",
-      "score": "Band 7.5"
+      "date": "06/2024",
+      "score": "Band 7.5",
+      "image": "/ielts-certificate.jpg"
     },
     {
-      "name": "Full Stack Web Development",
-      "issuer": "Coursera",
-      "date": "2024",
-      "credential": "https://coursera.org/verify/xxxxx"
+      "name": "Core Java",
+      "issuer": "Coursera-LearnQuest",
+      "date": "2025",
+      "credential": "https://coursera.org/share/b8813b6292939444dbff0b05f7b6ad21",
+      "image": "/core-java.png"
     },
     {
-      "name": "Java Programming Masterclass",
-      "issuer": "Udemy",
-      "date": "2023",
-      "credential": "https://udemy.com/certificate/xxxxx"
+      "name": "Basics of Web Development & Coding",
+      "issuer": "Coursera-University of Michigan",
+      "date": "2025",
+      "credential": "https://coursera.org/share/ddbe9da1ee078835615e1696e3e04540",
+      "image": "/web-dev.png"
+    },
+    {
+      "name": "Object-Oriented Programming with Java",
+      "issuer": "Coursera-LearnQuest",
+      "date": "2025",
+      "credential": "https://coursera.org/share/afa3beaa0582b9f33518e27245db4607",
+      "image": "/oop-java.png"
+    },
+    {
+      "name": "Software Design and Project Management",
+      "issuer": "Coursera-The Hong Kong University of Science and Technology",
+      "date": "2025",
+      "credential": "https://coursera.org/share/046675ccf0212a95ec3e5d613764bb4a",
+      "image": "/software.png"
     }
   ],
   "contact": {
